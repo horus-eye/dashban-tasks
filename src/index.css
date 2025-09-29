@@ -1,0 +1,128 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color-light: #f8f9fa;
+    --secondary-color-light: #ffffff;
+    --text-color-light: #212529;
+    --card-bg-light: #fff;
+    --card-shadow-light: rgba(0, 0, 0, 0.1);
+
+    --primary-color-dark: #121212;
+    --secondary-color-dark: #1e1e1e;
+    --text-color-dark: #e0e0e0;
+    --card-bg-dark: #2a2a2a;
+    --card-shadow-dark: rgba(255, 255, 255, 0.1);
+
+    --font-family-notes: 'Kalam', cursive;
+}
+
+body.light {
+    background-color: var(--primary-color-light);
+    color: var(--text-color-light);
+}
+
+body.dark {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-dark);
+}
+
+#kanban-board-container {
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    transition: background-color 0.5s ease;
+}
+
+.card {
+    font-family: var(--font-family-notes);
+    border: none;
+    border-radius: 5px;
+    background-color: #fefabc;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 98%, #d4d4d4 98%);
+    background-size: 100% 1.5em;
+    box-shadow: 0 5px 15px var(--card-shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .card {
+    background-color: #3a3a3a;
+    color: var(--text-color-dark);
+    box-shadow: 0 5px 15px var(--card-shadow-dark);
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 98%, #555 98%);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px var(--card-shadow-light);
+}
+
+.dark .card:hover {
+    box-shadow: 0 10px 20px var(--card-shadow-dark);
+}
+
+.card .btn-outline-secondary,
+.card .btn-outline-danger {
+    border: none;
+    background: transparent !important;
+}
+
+.dark .card .btn-outline-secondary,
+.dark .card .btn-outline-danger {
+    color: var(--text-color-dark);
+}
+
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status-dropdown .dropdown-item {
+    font-size: 1.1rem;
+}
+
+@keyframes slide-out-left {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-150px); opacity: 0; }
+}
+
+@keyframes slide-in-right {
+    from { transform: translateX(150px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-out-right {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(150px); opacity: 0; }
+}
+
+@keyframes slide-in-left {
+    from { transform: translateX(-150px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-out-left {
+    animation: slide-out-left 0.5s forwards;
+}
+
+.slide-in-right {
+    animation: slide-in-right 0.5s forwards;
+}
+
+.slide-out-right {
+    animation: slide-out-right 0.5s forwards;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.5s forwards;
+}
